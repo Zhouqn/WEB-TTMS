@@ -1,54 +1,64 @@
 <template>
-  <div id="app">
-    <!--<img src="./assets/logo.png">-->
-    <!--<router-view/>-->
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Messages</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">Settings</a>
-      </li>
-    </ul>
-
-    <!-- Tab panes -->
-    <!--<div class="tab-content">-->
-      <!--<div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab"></div>-->
-      <!--<div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>-->
-      <!--<div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">...</div>-->
-      <!--<div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">...</div>-->
-    <!--</div>-->
-    <div class="row">
-    <div class="col-3 nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <router-link class="nav-link active" id="v-pills-home-tab" data-toggle="pill" to="/test" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</router-link>
-      <router-link class="nav-link" id="v-pills-profile-tab" data-toggle="pill" to="/home" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</router-link>
-      <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+    <div id="app" class="container-fluid">
+        <div class="row">
+            <div class="d-flex-inline" id="leftNavBar">
+                <div class="list-group list-group-flush" id="list-tab" role="tablist">
+                    <router-link class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" to="/">Welcome！</router-link>
+                    <router-link class="list-group-item list-group-item-action" id="list-studio-list" data-toggle="list" to="studio">演出厅管理</router-link>
+                    <router-link class="list-group-item list-group-item-action" id="list-schedule-list" data-toggle="list" to="schedule">演出计划管理</router-link>
+                    <router-link class="list-group-item list-group-item-action" id="list-play-list" data-toggle="list" to="play">剧目管理</router-link>
+                    <router-link class="list-group-item list-group-item-action" id="list-account-list" data-toggle="list" to="account">用户管理</router-link>
+                </div>
+            </div>
+            <div class="d-flex flex-row" id="context">
+                <router-view></router-view>
+            </div>
+        </div>
     </div>
-    <div class="col-9 tab-content" id="v-pills-tabContent">
-      <router-view></router-view>
-      <!--<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">123</div>-->
-      <!--<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">456</div>-->
-      <!--<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">789</div>-->
-      <!--<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">abc</div>-->
-    </div>
-  </div>
-  </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+    export default {
+        name: 'App',
+        mounted() {
+            //$('#list-tab a').off()
+            $('#list-tab a')
+                .on('click', function (e) {
+                    e.preventDefault();
+
+                    //经过测试  按钮的按下特效和vue路由的选中冲突  表现为按下按钮的瞬间 按钮特效的对应的class被加入
+                    //紧接着 vue路由被选中对应的class被加入 导致按下特效的class丢失，因此在这里使用setTimeout在10毫秒后
+                    //再加入按钮按下特效  保证了特效的展示
+                    setTimeout(()=>{
+                        $(this).tab('show')
+                    },10)
+
+                })
+        }
+    }
 </script>
 
 <style>
+    #app{
+        margin-top: 15px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    #leftNavBar{
+
+    }
+    #list-tab{
+
+    }
+    #context{
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        display: block;
+    }
+    .list-group-item{
+        padding-left: 20px;
+        padding-right: 40px;
+    }
 
 </style>
