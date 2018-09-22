@@ -3,6 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import axios from 'axios'
+
+axios.defaults.withCredentials=true;//让ajax携带cookie
+
+Vue.prototype.$axios = axios;
 
 Vue.config.productionTip = false
 
