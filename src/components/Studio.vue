@@ -7,8 +7,8 @@
         <th>编号</th>
         <th>名字</th>
         <th>座位数</th>
-        <th>操作1</th>
-        <th>操作2</th>
+        <th>修改</th>
+        <th>删除</th>
       </tr>
       </thead>
       <tbody>
@@ -64,8 +64,8 @@
     vertical-align:middle;
   }
   #studio{
-    width: 100%;
-    height: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
   }
 
 </style>

@@ -32,7 +32,7 @@
     name: 'App',
     data() {
       return {
-        host: 'http://localhost:8080/'
+        host: 'http://fujie.bid/TTMS_TEST/'
       }
     },
     mounted() {
