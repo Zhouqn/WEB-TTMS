@@ -9,7 +9,7 @@ axios.defaults.withCredentials=true;//让ajax携带cookie
 
 Vue.prototype.$axios = axios;
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({
@@ -17,4 +17,4 @@ new Vue({
   router,
   components: { App },
   template: '<App/>'
-})
+});

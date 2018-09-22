@@ -12,6 +12,12 @@
       </tr>
       </thead>
       <tbody>
+
+      <!--
+      使用vue的for循环，
+      通过遍历studios数组来创建表格，
+      非常方便
+      -->
       <tr v-for="studio in studios">
         <th>{{studio.id}}</th>
         <th>{{studio.name}}</th>
@@ -30,6 +36,8 @@
 </template>
 
 <script>
+  import {get} from '../units/myHttp'
+
   export default {
     name: "Studio",
     props: ['host'],
@@ -38,22 +46,24 @@
         studios: null,
       }
     },
+    /*
+    *vue组件生命周期
+    *mounted()方法会在组件挂载完成后(也就是点击对应的功能按钮后)执行
+    * */
     mounted() {
-      this.$axios.get(this.host + 'studio/fetchAll')
+
+      //使用myHttp.js中封装的get方法
+      get('studio/fetchAll')
         .then((response) => {
-          response = response.data.split('\n')
-          response[0] = eval('(' + response[0] + ')')
-          response[1] = eval('(' + response[1] + ')')
-          if (response[0].status) {
-            this.studios = response[1];
-          } else {
-            //如果服务器出现业务级别的错误  那么在控制台打印出出错原因
-            console.log(response[1]);
+          if(response.status){
+            this.studios = response.data;
+          }else {
+            console.warn(response.data);
           }
         })
         .catch((error) => {
-          console.log(error)
-        })
+          console.error(error);
+        });
       console.log('zqn')
     }
   }
