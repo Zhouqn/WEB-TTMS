@@ -1,39 +1,39 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Account from '@/components/Account'
+import Account from '@/components/account/Account'
 import HelloWorld from '@/components/HelloWorld'
-import Play from '@/components/Play'
-import Schedule from '@/components/Schedule'
-import Studio from '@/components/Studio'
+import Play from '@/components/play/Play'
+import Schedule from '@/components/schedule/Schedule'
+import Studio from '@/components/studio/Studio'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-      {
-          path: '/account',
-          name: 'Account',
-          component: Account
-      },
-      {
-          path: '/',
-          name: 'HelloWorld',
-          component: HelloWorld
-      },
-      {
-          path: '/play',
-          name: 'Play',
-          component: Play
-      },
-      {
-          path: '/schedule',
-          name: 'Schedule',
-          component: Schedule
-      },
-      {
-          path: '/studio',
-          name: 'Studio',
-          component: Studio
-      }
+    {
+      path: '/account',
+      name: 'Account',
+      component: Account
+    },
+    {
+      path: '/',
+      name: 'HelloWorld',
+      component: HelloWorld
+    },
+    {
+      path: '/play',
+      name: 'Play',
+      component: Play
+    },
+    {
+      path: '/schedule',
+      name: 'Schedule',
+      component: Schedule
+    },
+    {
+      path: '/studio',
+      name: 'Studio',
+      component: Studio,
+    }
   ]
 })

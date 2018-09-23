@@ -7,8 +7,8 @@
         <th>编号</th>
         <th>名字</th>
         <th>座位数</th>
-        <th>修改</th>
-        <th>删除</th>
+        <th> </th>
+        <th> </th>
       </tr>
       </thead>
       <tbody>
@@ -23,7 +23,7 @@
         <th>{{studio.name}}</th>
         <th>{{studio.count}}</th>
         <th>
-          <button class="btn btn-primary btn-sm">修改</button>
+          <button @click="modify(studio)" class="btn btn-primary btn-sm">修改</button>
         </th>
         <th>
           <button class="btn btn-danger btn-sm">删除</button>
@@ -32,18 +32,27 @@
       </tr>
       </tbody>
     </table>
+    <router-view/>
   </div>
 </template>
 
 <script>
-  import {get} from '../units/myHttp'
+  import {get} from '../../units/myHttp'
+  import {chComponent} from '../../units/tools'
 
   export default {
-    name: "Studio",
-    props: ['host'],
+    name: "ShowAll",
     data() {
       return {
         studios: null,
+      }
+    },
+    methods : {
+       modify(studio){
+         //修改父组件中动态组件的值来改变页面内容
+         //改变时可以向对应组件传递一个参数
+         chComponent(this,'Modify',studio);
+        //this.$parent.showComponent(this.$parent.components.Modify)
       }
     },
     /*
@@ -64,7 +73,6 @@
         .catch((error) => {
           console.error(error);
         });
-      console.log('zqn')
     }
   }
 </script>

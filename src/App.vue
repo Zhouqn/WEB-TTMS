@@ -7,21 +7,24 @@
                        to="/">Welcome！
           </router-link>
           <router-link class="list-group-item list-group-item-action" id="list-studio-list" data-toggle="list"
-                       to="studio">演出厅管理
+                       to="/studio">演出厅管理
           </router-link>
           <router-link class="list-group-item list-group-item-action" id="list-schedule-list" data-toggle="list"
-                       to="schedule">演出计划管理
+                       to="/schedule">演出计划管理
           </router-link>
-          <router-link class="list-group-item list-group-item-action" id="list-play-list" data-toggle="list" to="play">
+          <router-link class="list-group-item list-group-item-action" id="list-play-list" data-toggle="list"
+                       to="/play">
             剧目管理
           </router-link>
           <router-link class="list-group-item list-group-item-action" id="list-account-list" data-toggle="list"
-                       to="account">用户管理
+                       to="/account">用户管理
           </router-link>
         </div>
       </div>
+
+      <!--flex-grow-1是bootstrap4.1新特性 使得弹性布局下的元素尽量占据剩余宽度-->
       <div id="context" class="flex-grow-1">
-        <router-view :host="host"/>
+        <router-view/>
       </div>
     </div>
   </div>
