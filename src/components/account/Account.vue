@@ -3,7 +3,7 @@
   <div class="bs-example" data-example-id="panel-without-body-with-table">
     <div class="panel panel-default">
       <!-- Default panel contents -->
-      <div class="panel-heading">用户管理</div>
+      <!--<div class="panel-heading">用户管理</div>-->
 
       <!-- Table -->
       <table class="table">
@@ -12,8 +12,8 @@
           <th>序号</th>
           <th>用户姓名</th>
           <th>身份</th>
-          <th>修改</th>
-          <th>删除</th>
+          <th></th>
+          <th></th>
         </tr>
         </thead>
         <tbody>
@@ -62,15 +62,19 @@
     export default {
         name: "Account",
 
+      mounted(){
+        this.$emit('title','用户管理')
+      }
+
     }
 </script>
 
 <style scoped>
 
-  .panel-heading{
+ /* .panel-heading{
     font-family: 楷体 ;
     font-size: 40px;
-  }
+  }*/
 
   .bs-example {
     margin-left: 50px;

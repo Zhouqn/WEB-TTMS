@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container-fluid">
-    <nav class="navbar navbar-dark" style="background-color: #563d7c;">
+    <nav class="navbar navbar-dark" style="background-color: #117a8b;">
       <a class="navbar-brand" href="#">HLW</a>
       <span class="navbar-brand">{{title}}</span>
       <span>
@@ -75,14 +75,13 @@
     margin-top: 15px;
     margin-left: 15px;
     margin-right: 15px;
+   /* background-color: #5a6268;*/
   }
 
   #leftNavBar {
-
   }
 
   #list-tab {
-
   }
 
   #context {
@@ -91,11 +90,14 @@
     text-align: center;
   }
   #context-all{
-    padding-top: 1%;
+    padding-top: 2%;
+
   }
   .list-group-item {
     padding-left: 20px;
     padding-right: 40px;
+    margin-bottom: 25px;
+    background-color: lavender;
   }
 
 </style>

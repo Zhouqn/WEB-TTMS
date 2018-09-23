@@ -1,6 +1,6 @@
 <template>
   <div id="play">
-    <h1 class="panel-heading" >剧目管理</h1>
+<!--    <h1 class="panel-heading" >剧目管理</h1>-->
     <table class="table table-hover table table-condensed">
       <thead>
         <tr>
@@ -52,15 +52,20 @@
 
 <script>
     export default {
-        name: "Play"
+        name: "Play",
+
+         mounted(){
+        this.$emit('title','剧目管理')
+      }
     }
+
 </script>
 
 <style scoped>
-  .panel-heading{
+ /* .panel-heading{
     font-family: 楷体 ;
     font-size: 40px;
-  }
+  }*/
   #play{
     margin-left: 5%;
     margin-right: 5%;
