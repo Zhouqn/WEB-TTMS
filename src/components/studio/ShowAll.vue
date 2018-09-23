@@ -1,6 +1,5 @@
 <template>
   <div id="studio">
-    <h1>演出厅列表</h1>
     <table class="table">
       <thead>
       <tr>
@@ -60,7 +59,6 @@
     *mounted()方法会在组件挂载完成后(也就是点击对应的功能按钮后)执行
     * */
     mounted() {
-
       //使用myHttp.js中封装的get方法
       get('studio/fetchAll')
         .then((response) => {

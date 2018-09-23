@@ -1,5 +1,15 @@
 <template>
   <div id="app" class="container-fluid">
+    <nav class="navbar navbar-dark" style="background-color: #563d7c;">
+      <a class="navbar-brand" href="#">HLW</a>
+      <span class="navbar-brand">{{title}}</span>
+      <span>
+              <a class="zi zi_useralt zi_1x" style="color: white" href="">&nbsp;&nbsp;fujie</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="" style="color: white">注销</a>
+
+      </span>
+    </nav>
     <div class="d-flex">
       <div id="leftNavBar">
         <div class="list-group list-group-flush" id="list-tab" role="tablist">
@@ -21,10 +31,9 @@
           </router-link>
         </div>
       </div>
-
       <!--flex-grow-1是bootstrap4.1新特性 使得弹性布局下的元素尽量占据剩余宽度-->
       <div id="context" class="flex-grow-1">
-        <router-view/>
+        <router-view @title="setTitle"/>
       </div>
     </div>
   </div>
@@ -35,7 +44,12 @@
     name: 'App',
     data() {
       return {
-        host: 'http://fujie.bid/TTMS_TEST/'
+        title : ''
+      }
+    },
+    methods:{
+      setTitle(title){
+        this.title = title;
       }
     },
     mounted() {
@@ -74,6 +88,7 @@
   #context {
     margin-left: auto;
     margin-right: auto;
+    padding-top: 1%;
     text-align: center;
   }
 

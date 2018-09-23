@@ -12,7 +12,7 @@
     props : ['parameter'],
     data(){
       return{
-        studio : null
+        studio : null,
       }
     }
   }

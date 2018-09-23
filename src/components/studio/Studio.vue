@@ -1,5 +1,5 @@
 <template>
-  <component v-bind:is="currentComponent" :parameter="parameter"/>
+  <component v-bind:is="currentComponent" :parameter="parameter" />
 </template>
 
 <script>
@@ -23,6 +23,11 @@
       showComponent(component) {
         this.currentComponent = component;
       }
+    },
+    mounted(){
+
+      //在组件挂载完成后向父组件发送title事件,使得父组件修改标题
+      this.$emit('title','演出厅管理');
     }
   }
 </script>
