@@ -12,8 +12,8 @@
           <th>序号</th>
           <th>用户姓名</th>
           <th>身份</th>
-          <th></th>
-          <th></th>
+          <th>修改</th>
+          <th>删除</th>
         </tr>
         </thead>
         <tbody>
@@ -81,7 +81,7 @@
   }
   #cha1,#cha2,#cha3,#cha4,#cha5{
     width: 50px;
-    background-color: darkorange;
+    background-color: #17a2b8;
     border-color: darkgray;
     color: white;
     border-radius: 20px;
