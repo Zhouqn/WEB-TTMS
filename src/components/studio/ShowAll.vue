@@ -1,6 +1,6 @@
 <template>
   <div id="studio">
-    <table class="table">
+    <table class="table table-hover">
       <thead>
       <tr>
         <th>编号</th>

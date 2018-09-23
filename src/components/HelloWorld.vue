@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
   <h1>欢迎使用HLW剧院票务管理系统</h1>
+    <h6>内容再稍微宽一点就不会显得居中问题很严重(参考演出厅管理)</h6>
   </div>
 </template>
 
@@ -11,6 +12,9 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  mounted(){
+    this.$emit('title','欢迎页')
   }
 }
 </script>

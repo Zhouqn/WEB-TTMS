@@ -10,7 +10,7 @@
 
       </span>
     </nav>
-    <div class="d-flex">
+    <div id="context-all" class="d-flex">
       <div id="leftNavBar">
         <div class="list-group list-group-flush" id="list-tab" role="tablist">
           <router-link class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list"
@@ -88,10 +88,11 @@
   #context {
     margin-left: auto;
     margin-right: auto;
-    padding-top: 1%;
     text-align: center;
   }
-
+  #context-all{
+    padding-top: 1%;
+  }
   .list-group-item {
     padding-left: 20px;
     padding-right: 40px;
