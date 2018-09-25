@@ -20,7 +20,7 @@
       <tr v-for="account in accounts">
         <th>{{account.uid}}</th>
         <th>{{account.username}}</th>
-        <th>{{account.type}}</th>
+        <th>{{ACCOUNT_TYPE[account.type]}}</th>
         <th>
           <button @click="modify(account)" class="btn btn-primary btn-sm">修改</button>
         </th>
@@ -44,6 +44,13 @@
     data() {
       return {
         accounts: null,
+
+        //这里 使用ACCOUNT_TYPE对象将用户类型的简写与中文对应起来
+        ACCOUNT_TYPE :{
+          ADMIN : '管理员',
+          MANG : '经理',
+          CLERK : '售票员'
+        }
       }
     },
     methods : {
