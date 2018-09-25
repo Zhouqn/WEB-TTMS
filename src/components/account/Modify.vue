@@ -12,7 +12,7 @@
       <label for="account-name">身份类别</label>
       <div class="input-group mb-3">
         <select class="custom-select" id="inputGroupSelect02">
-          <option v-model="parameter.type" selected=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{parameter.type}}</font></font></option>
+          <option v-model="parameter.type" selected=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ACCOUNT_TYPE[parameter.type]}}</font></font></option>
           <option value="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">管理员</font></font></option>
           <option value="2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">经理</font></font></option>
           <option value="3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">售票员</font></font></option>
@@ -38,6 +38,12 @@
     data(){
       return{
         account : null,
+
+        ACCOUNT_TYPE :{
+          ADMIN : '管理员',
+          MANG : '经理',
+          CLERK : '售票员'
+        }
       }
     }
   }
