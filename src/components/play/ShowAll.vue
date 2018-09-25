@@ -9,6 +9,8 @@
         <th>时长</th>
         <!--<th>上映日期</th>-->
         <th>价格</th>
+        <th></th>
+        <th></th>
       </tr>
       </thead>
       <tbody>
