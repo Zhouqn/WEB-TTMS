@@ -14,13 +14,13 @@
 
       <!--
       使用vue的for循环，
-      通过遍历studios数组来创建表格，
+      通过遍历accounts数组来创建表格，
       非常方便
       -->
       <tr v-for="account in accounts">
-        <th>{{account.id}}</th>
-        <th>{{account.name}}</th>
-        <th>{{account.count}}</th>
+        <th>{{account.uid}}</th>
+        <th>{{account.username}}</th>
+        <th>{{account.type}}</th>
         <th>
           <button @click="modify(account)" class="btn btn-primary btn-sm">修改</button>
         </th>
@@ -63,7 +63,7 @@
       get('account/fetchAll')
         .then((response) => {
           if(response.status){
-            this.studios = response.data;
+            this.accounts = response.data;
           }else {
             console.warn(response.data);
           }
