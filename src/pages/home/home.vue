@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="container-fluid">
+  <div id="home" class="container-fluid">
     <nav class="navbar navbar-dark" style="background-color: #117a8b;">
       <a class="navbar-brand" href="#">HLW</a>
       <span class="navbar-brand">{{title}}</span>
