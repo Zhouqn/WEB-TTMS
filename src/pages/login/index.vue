@@ -29,7 +29,7 @@
     data() {
       return {
         view: {
-          isShowCheckCode: false,//用来决定验证码是是否显示
+          // isShowCheckCode: false,//用来决定验证码是是否显示
           isDisableButton: true, //是否禁用button
           is_check: 0,
           flagMap: {
@@ -64,15 +64,20 @@
         let re = /.{6,26}/;
         if (re.test(this.form.password)) {
           this.setNormal('password');
+          return true;
         } else {
-          this.setInvalid('password')
+          this.setInvalid('password');
+          return false;
         }
       },
       checkName() {
         if (this.form.user_name === '') {
           this.setInvalid('user_name');
+          toastr.warning('用户名不能为空');
+          return false;
         } else {
           this.setNormal('user_name');
+          return true;
         }
       },
       checkClass() {
@@ -85,12 +90,15 @@
       submit() {
         window.event.returnValue=false;
         window.location.href = 'home.html';
+        if(!this.checkPassword()){
+
+        }
       },
 
     },
     props: ['host', 'activity'],
     mounted() {
-      // toastr.options.positionClass = 'toast-top-center';
+       toastr.options.positionClass = 'toast-top-center';
     },
 
   }
@@ -102,20 +110,17 @@
     margin-bottom: 1.5rem;
   }
 
-  #student_no {
+  #user_name {
     margin-bottom: -1px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
-
   #password {
     margin-bottom: 1.5rem;
-    border-radius: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
   }
-  #real_name {
-    margin-bottom: -1px;
-    border-radius: 0;
-  }
+
   #admin_class {
     margin-bottom: 1.5rem;
     border-top-left-radius: 0;
