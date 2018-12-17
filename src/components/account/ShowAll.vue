@@ -2,7 +2,7 @@
   <div id="studio">
     <div class="form-inline" role="search" >
       <div class="form-group inline" style="margin-left: 2%">
-        <input v-model="view.keywords" name="KeyWord" class="form-control mr-sm-2" type="text" placeholder="过滤">
+        <input @input="view.curPage = 1" v-model="view.keywords" name="KeyWord" class="form-control mr-sm-2" type="text" placeholder="过滤">
       </div>
       <b class="zi zi_searchBlack" style="background:none; margin-left:-2.3rem; color:#ff9d00;"></b>
       <div class="form-group " style="margin-right: 2%; margin-left: auto">
