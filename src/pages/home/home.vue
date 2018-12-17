@@ -33,7 +33,9 @@
       </div>
       <!--flex-grow-1是bootstrap4.1新特性 使得弹性布局下的元素尽量占据剩余宽度-->
       <div id="context" class="flex-grow-1">
+        <transition name="fade-transform" mode="out-in">
         <router-view @title="setTitle"/>
+        </transition>
       </div>
     </div>
   </div>
@@ -65,7 +67,8 @@
             $(this).tab('show')
           }, 10)
 
-        })
+        });
+      toastr.options.positionClass = 'toast-top-center';
     }
   }
 </script>
@@ -98,6 +101,9 @@
     padding-right: 40px;
     margin-bottom: 25px;
     background-color: lavender;
+  }
+  #toast-container{
+    margin-top: 10%;
   }
 
 </style>

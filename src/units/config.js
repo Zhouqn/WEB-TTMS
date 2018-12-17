@@ -1,1 +1,1 @@
-export let host = 'http://fujie.bid/TTMS_TEST/';
+export let host = 'http://java.fujie.bid/TTMS/';
