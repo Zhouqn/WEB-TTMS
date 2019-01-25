@@ -1,7 +1,8 @@
 <template>
   <div class="hello">
+    <img src="../assets/home.jpg" style="width: 80%"/>
+    <br/><br/>
   <h1>欢迎使用HLW剧院票务管理系统</h1>
-    <h6>内容再稍微宽一点就不会显得居中问题很严重(参考演出厅管理)</h6>
   </div>
 </template>
 

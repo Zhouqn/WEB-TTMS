@@ -5,6 +5,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Play from '@/components/play/Play'
 import Schedule from '@/components/schedule/Schedule'
 import Studio from '@/components/studio/Studio'
+import Sale from '@/components/sale/Sale'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/studio',
       name: 'Studio',
       component: Studio,
+    },
+    {
+      path: '/sale',
+      name: 'Sale',
+      component: Sale,
     }
   ]
 })

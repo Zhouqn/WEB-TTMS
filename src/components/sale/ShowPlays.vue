@@ -5,9 +5,7 @@
         <input @input="view.curPage = 1" v-model="view.keywords" name="KeyWord" class="form-control mr-sm-2" type="text" placeholder="过滤">
       </div>
       <b class="zi zi_searchBlack" style="background:none; margin-left:-2.3rem; color:#ff9d00;"></b>
-      <div class="form-group " style="margin-right: 2%; margin-left: auto">
-        <button @click="add" class="zi zi_pluscircle btn btn-light " > &nbsp;新增剧目</button>
-      </div>
+
     </div>
     <br/>
     <table class="table table-hover">
@@ -19,7 +17,6 @@
         <th>时长</th>
         <!--<th>上映日期</th>-->
         <th>价格</th>
-        <th></th>
         <th></th>
       </tr>
       </thead>
@@ -39,11 +36,9 @@
         <th>{{play.price}}</th>
 
         <th>
-          <button @click="modify(play)" class="btn btn-primary btn-sm">修改</button>
+          <button @click="sale(play)" class="btn btn-primary btn-sm">售票</button>
         </th>
-        <th>
-          <button @click="deletePlay(play)" class="btn btn-danger btn-sm">删除</button>
-        </th>
+
 
       </tr>
       </tbody>
@@ -62,7 +57,7 @@
   import {chComponent} from '../../units/tools'
 
   export default {
-    name: "ShowAll",
+    name: "ShowPlays",
     data() {
       return {
         view: {
@@ -73,7 +68,7 @@
         },
         plays_all: null,
         plays : () => this.plays_all != null
-        ? this.search(this.plays_all,this.view.keywords) : [],
+          ? this.search(this.plays_all,this.view.keywords) : [],
       }
     },
     methods : {
@@ -91,29 +86,12 @@
 
 
       },
-      modify(play){
+      sale(play){
         //修改父组件中动态组件的值来改变页面内容
         //改变时可以向对应组件传递一个参数
-        chComponent(this,'Modify',play);
+        chComponent(this,'ShowScheduleByPlay',play);
         //this.$parent.showComponent(this.$parent.components.Modify)
       },
-      add(){
-        chComponent(this,'Add',null)
-      },
-      deletePlay(play){
-        post('play/delete',play)
-          .then((response)=>{
-            if(response.status){
-              toastr.success('删除成功！');
-              chComponent(this,'为了让页面刷新',null);
-              setTimeout(() => chComponent(this,'ShowAll',null),10)
-            }else {
-              toastr.error('删除失败！')
-            }
-          }).catch(error=>{
-          console.log(error)
-        })
-      }
     },
     /*
     *vue组件生命周期

@@ -1,14 +1,14 @@
 <template>
   <div id="index" class="form-sign text-center">
 
-    <form class="form-sign">
+    <div class="form-sign">
       <!--<h4>-->
         <!--<img class="logo" src="../assets/xiyoulinux.png" alt="" width="30%">-->
         <!--&nbsp;&nbsp;+&nbsp;&nbsp;-->
         <!--<img class="logo" src="../assets/sfd.png" alt="" width="30%">-->
       <!--</h4>-->
       <h1 class="h2 mb-4 font-weight-normal">HLW剧院票务管理系统</h1>
-      <input type="text" id="user_name" v-model="form.user_name" @blur="checkName" class="form-control"
+      <input type="text" id="username" v-model="form.username" @blur="checkName" class="form-control"
              placeholder="请输入用户名" required>
       <input type="password" id="password" v-model="form.password" @input="checkPassword" class="form-control"
              placeholder="请输入密码"
@@ -18,12 +18,14 @@
       <button id="submit" class="btn btn-lg btn-primary btn-block" type="submit" @click="submit"
               v-bind:disabled="view.isDisableButton">登录
       </button>
-    </form>
+    </div>
 
   </div>
 </template>
 
 <script>
+  import {post} from "../../units/myHttp";
+
   export default {
     name: "Login",
     data() {
@@ -34,14 +36,14 @@
           is_check: 0,
           flagMap: {
             max: 3,
-            user_name: 0b1,
+            username: 0b1,
             password: 0b10,
             admin_class: 0b100,
             checkCode: 0b1000
           },
         },
         form: {
-          user_name: '',
+          username: '',
           password: '',
         },
 
@@ -61,7 +63,7 @@
         document.getElementById(id).classList.remove('is-invalid');
       },
       checkPassword() {
-        let re = /.{6,26}/;
+        let re = /.{2,26}/;
         if (re.test(this.form.password)) {
           this.setNormal('password');
           return true;
@@ -71,12 +73,12 @@
         }
       },
       checkName() {
-        if (this.form.user_name === '') {
-          this.setInvalid('user_name');
+        if (this.form.username === '') {
+          this.setInvalid('username');
           toastr.warning('用户名不能为空');
           return false;
         } else {
-          this.setNormal('user_name');
+          this.setNormal('username');
           return true;
         }
       },
@@ -89,10 +91,27 @@
       },
       submit() {
         window.event.returnValue=false;
-        window.location.href = 'home.html';
-        if(!this.checkPassword()){
 
+        if(!this.checkPassword()){
+          toastr.warning('密码不合法鸭');
+          return;
         }
+        let user = Object.assign({},this.form);
+        let MD5 = require("md5.js");
+
+        user.password = new MD5().update(user.password).digest("hex");
+        post('login',user)
+          .then((response) => {
+            console.log(response);
+            if(response.status){
+              location.href = 'home.html';
+            }else {
+              toastr.warning('用户名或密码错误')
+            }
+          })
+          .catch((error) => {
+            console.log(error)
+          })
       },
 
     },
@@ -106,11 +125,10 @@
 
 <style scoped>
 
-  .logo {
-    margin-bottom: 1.5rem;
+  #toast-container{
+    margin-top: 10%;
   }
-
-  #user_name {
+  #username {
     margin-bottom: -1px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;

@@ -1,6 +1,6 @@
 <template>
   <div id="modify">
-    <form class="modify-form">
+    <div class="modify-form">
       <div class="form-group">
         <label for="account-id">用户编号</label>
         <input type="text" class="form-control" id="account-id" readonly v-model="account.uid">
@@ -22,11 +22,11 @@
         <input type="password" class="form-control" id="account-password" placeholder="留空表示不修改" v-model="account.password">
       </div>
       <div class="" style="text-align: right">
-        <button type="submit" class="btn btn-warning " @click="cancel">取 消</button>
+        <button type="submit" class="btn btn-warning " @click="cancel" >取 消</button>
         &nbsp;&nbsp;
-        <button type="submit" class="btn btn-primary " @click="submit(account)">确 定</button>
+        <button type="submit" class="btn btn-primary " @click="submit(account)" >确 定</button>
       </div>
-    </form>
+    </div>
 
   </div>
 
@@ -40,7 +40,7 @@
     props : ['parameter'],
     data(){
       return{
-        account : null,
+        account : Object.assign({},this.parameter),
 
         ACCOUNT_TYPE :{
           ADMIN : '管理员',
@@ -101,7 +101,7 @@
 
     },
     mounted(){
-      this.account = Object.assign({},this.parameter);
+      // this.account = Object.assign({},this.parameter);
       this.account.password = '';
   }
   }

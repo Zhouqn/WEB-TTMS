@@ -1,5 +1,6 @@
 import http from 'axios'
 import {host} from './config'
+
 http.defaults.withCredentials=true;//让ajax携带cookie
 export function get(path) {
   return new Promise((resolve, reject) => {
@@ -38,3 +39,4 @@ export function post(path,data) {
     })
   })
 }
+export {http}
