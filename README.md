@@ -3,3 +3,4 @@
 - 只完成了部分功能
 - 使用Vue2.0 + Bootstrap4.1.3构建
 - 演示地址：[http://ttms-web.fujie.bid](http://ttms-web.fujie.bid)
+- 演示用户名：fujie 密码：fujie
